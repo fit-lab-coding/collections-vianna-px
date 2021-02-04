@@ -49,11 +49,14 @@ public class AppTest {
         };
 
         // act
-        List<String> actualResult = ListUtils.<String>sort(names, comp);
+        //List<String> actualResult = ListUtils.<String>sort(names, comp);
+        List<String> actualResult = ListUtils.sort(names, comp);
 
         // assert
         assertArrayEquals(expectedResult.toArray(), actualResult.toArray());
     }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Test
     public void shouldGenerateRandomAttendanceList() {
@@ -62,7 +65,7 @@ public class AppTest {
             put("test one", true);
             put("test two", false);
         }};
-        
+
 
         //act
         Map<String, Boolean> attendanceListResult = AttendanceHelper.random(2, 50);
@@ -70,7 +73,7 @@ public class AppTest {
         //assert
 
         //same size (due to parameters sent to random method)
-        assertEquals(attendanceListResult.size(), attendanceListResult.size());
+        assertEquals(attendanceListResult.size(), attendanceListExpected.size());
 
         //same percentile of 'true' values due to parameters sent to random method
         assertEquals(
