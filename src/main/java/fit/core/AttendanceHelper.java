@@ -1,10 +1,19 @@
 package fit.core;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class AttendanceHelper {
-    public static Map<K, V> random(<K> alunos, <V> percent) {
-        //Desculpa professor, não consegui entender, muito menos fazer...
+    public static Map<String, Boolean> random(int pupil, int percent) {
+        Map<String, Boolean> attendanceList = new HashMap<>();
+
+        int totalPresence = (int)Math.ceil(pupil * (percent/100.00));
+
+        for(int i = 0; i < pupil; i++) {
+            boolean present = i < totalPresence;
+            attendanceList.put("" + i, present);
+        }
+
+        return attendanceList;
     }
 }
